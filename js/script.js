@@ -33,8 +33,8 @@ function login() {
     checkPassword(password);
 }
 
+var x = 3249;
 function checkPassword(p) {
-    var x = 3249;
     if (!p) history.go(-1);
     if (h(p) == x) {
         $('#attendance-form-container').show();
@@ -255,3 +255,36 @@ $('#service-type').on('change', function() {
     var service_type = $(this).val();
     autoSelectTime(service_type);
 });
+
+$("#showHide").click(function () {
+			if ($("#formpassword").attr("type") == "password") {
+				$("#formpassword").attr("type", "text");
+				$("#showHide").text("Hide");
+
+			} else {
+				$("#formpassword").attr("type", "password");
+				$("#showHide").text("Show");
+			}
+});
+$("#formRememberMe").on("click", function(event){
+			if(this.checked){
+				var data = $("#formpassword");
+				var res = h(data.val());
+				if(res === x){
+					sessionStorage.setItem("g8aform", data.val());
+					sessionStorage.setItem("g8aformValid", true);
+				}			
+			}else {
+				$(this).prop('checked', false);
+				$("#formpassword").val("");
+				sessionStorage.setItem("g8aform", "");
+				sessionStorage.setItem("g8aformValid", false);
+			}
+});	
+var sessStore=sessionStorage.getItem("g8aform");
+var sessStoreValid=sessionStorage.getItem("g8aformValid");
+if(sessStore && h(sessStore) === x && sessStoreValid){
+	$("#formRememberMe").prop('checked', true);
+	$("#formpassword").val(sessStore);
+}			
+
