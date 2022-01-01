@@ -271,18 +271,18 @@ $("#formRememberMe").on("click", function(event){
 				var data = $("#formpassword");
 				var res = h(data.val());
 				if(res === x){
-					sessionStorage.setItem("g8aform", data.val());
-					sessionStorage.setItem("g8aformValid", true);
+					window.localStorage.setItem("g8aform", data.val());
+					window.localStorage.setItem("g8aformValid", true);
 				}			
 			}else {
 				$(this).prop('checked', false);
 				$("#formpassword").val("");
-				sessionStorage.setItem("g8aform", "");
-				sessionStorage.setItem("g8aformValid", false);
+				window.localStorage.setItem("g8aform", "");
+				window.localStorage.setItem("g8aformValid", false);
 			}
 });	
-var sessStore=sessionStorage.getItem("g8aform");
-var sessStoreValid=sessionStorage.getItem("g8aformValid");
+var sessStore=window.localStorage.getItem("g8aform");
+var sessStoreValid=window.localStorage.getItem("g8aformValid");
 if(sessStore && h(sessStore) === x && sessStoreValid){
 	$("#formRememberMe").prop('checked', true);
 	$("#formpassword").val(sessStore);
