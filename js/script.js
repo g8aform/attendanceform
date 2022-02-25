@@ -6,7 +6,9 @@ const loadMiembros = function() {
         window.miembros = myObj;
         let text = "<option id='select-a-member' value=''>- Select Name -</option>";
         for (let x in myObj) {
-            text += "<option value='" + myObj[x].id + "' data-churchid='" + myObj[x].churchid + "' data-subgroup='" + myObj[x].subgroup + "' data-kktk='" + myObj[x].kktk + "'>" + myObj[x].fullname + "</option>";
+            if (myObj[x].is_transferred === 'undefined') {
+                text += "<option value='" + myObj[x].id + "' data-churchid='" + myObj[x].churchid + "' data-subgroup='" + myObj[x].subgroup + "' data-kktk='" + myObj[x].kktk + "'>" + myObj[x].fullname + "</option>";
+            }
         }
         document.getElementById("miembros").innerHTML = text;
     }
