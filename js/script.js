@@ -225,13 +225,19 @@ function autoSelectTime(service_type) {
         case "Serbisyong Kapatiran": {
             $('#time-attended option:contains("9:30 PM")').attr('selected', true);
             $('#platform option:selected').attr('selected', false);
-            $('#platform option:contains("Instagram")').attr('selected', true);
+            $('#platform option:contains("MCGI TV")').attr('selected', true);
             break;
         }
         case "Global Prayer": {
             $('#time-attended option:contains("9:30 PM")').attr('selected', true);
             $('#platform option:selected').attr('selected', false);
             $('#platform option:contains("YouTube")').attr('selected', true);
+            break;
+        }
+        case "MCGI Cares Program": {
+            $('#time-attended option:contains("7:00 PM")').attr('selected', true);
+            $('#platform option:selected').attr('selected', false);
+            $('#platform option:contains("MCGI TV")').attr('selected', true);
             break;
         }
         default: $('#time-attended option:contains("- Select Time Attended -")').attr('selected', true); break;
