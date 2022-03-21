@@ -10,7 +10,7 @@ const loadMiembros = function() {
         }
         document.getElementById("miembros").innerHTML = text;
     }
-    xmlhttp.open("GET", "/attendanceform/api/app-data.json?x=20220311");
+    xmlhttp.open("GET", "/attendanceform/api/app-data.json?x=20220321");
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("x=" + dbParam);
 }
