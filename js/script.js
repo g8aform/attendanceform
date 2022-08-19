@@ -61,10 +61,9 @@ function validate() {
     var has_date = ($('#date-attended').val().length > 0);
     var has_time = ($('#time-attended').val().length > 0);
     var has_subgroup = ($('#subgroup').val().length > 0);
-    var has_member = ($('#miembros').val().length > 0);
-    if (has_service_type && has_date && has_time && has_subgroup && has_member) {
+    if (has_service_type && has_date && has_time && has_subgroup) {
         var d = new Date($('#date-attended').val());
-        var current_year = 2021;
+        var current_year = 2022;
         if (d.getFullYear() < current_year) {
             alert('Please enter the correct date');
             return false;
