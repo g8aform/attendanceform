@@ -10,7 +10,7 @@ const loadMiembros = function() {
         }
         document.getElementById("miembros").innerHTML = text;
     }
-    xmlhttp.open("GET", "/attendanceform/api/app-data.json?x=20220819A");
+    xmlhttp.open("GET", "/attendanceform/api/app-data.json?x=2022-08-19");
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("x=" + dbParam);
 }
@@ -142,13 +142,12 @@ function haveInputs() {
     var has_date = ($('#date-attended').val().length > 0);
     var has_time = ($('#time-attended option:selected').val().length > 0);
     var has_subgroup = ($('#subgroup option:selected').val().length > 0);
-    var has_member = ($('#miembros option:selected').val().length > 0);
     if (has_subgroup) {
         $('#miembros').attr('disabled', false);
     } else {
         $('#miembros').attr('disabled', true);
     }
-    if (has_service_type && has_date && has_time && has_subgroup && has_member) {
+    if (has_service_type && has_date && has_time && has_subgroup) {
         $('#submit-attendance-button').attr('disabled', false);
     } else {
         $('#submit-attendance-button').attr('disabled', true);
